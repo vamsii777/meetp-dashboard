@@ -1,0 +1,24 @@
+<div  id="login" fxLayout="column">
+<div *ngIf="auth.user$ | async as user$; else showLogin">
+
+</div>
+<ng-template  #showLogin>
+<div id="login-form-wrapper" fxLayout="column" fxLayoutAlign="center center">
+
+    <div style="background: #FFFFFF;" id="login-form" [@animate]="{value:'*',params:{duration:'300ms',y:'100px'}}">
+
+
+        <h1>Authorization Required*</h1>
+        <h3>MeetpApp - Dashboard</h3>
+
+        <button style="margin-top: 14px;" (click)="auth.googleSignin()" mat-raised-button class="google">
+            Log in with Google
+        </button>
+        <h4 style="margin:0px;padding-top: 14px;">Please use your registered account only. By logging in you agree to our terms and conditions.</h4>
+
+    </div>
+
+</div>
+</ng-template>
+</div>
+

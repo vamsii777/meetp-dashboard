@@ -1,0 +1,23 @@
+<div *ngIf="auth.user$ | async as user"  class="page-layout blank" fusePerfectScrollbar>
+    <mat-card appMaterialElevation>
+
+        <mat-card-content>
+            <p>
+Some features are under development.
+            </p>
+        </mat-card-content>
+    </mat-card>
+
+
+
+   <a [routerLink]="['/dashboard/addvideos']" > <div *ngIf="auth.user$ | async as user"   class="card">
+
+
+        <div class="p-16">
+            <div class="h1">Realtime Database</div>
+            <div class="h4 secondary-text">Current Plan - Free </div>
+            <p style="color: gray;" class="h4 secondary-text">UID: {{ user.uid }} </p>
+        </div>
+</div>
+</a>
+</div>

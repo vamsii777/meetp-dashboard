@@ -1,0 +1,112 @@
+<div cdk-scrollable style="padding-bottom: 42px;" *ngIf="auth.user$ | async as user"  class="page-layout blank" fusePerfectScrollbar>
+    <mat-card appMaterialElevation>
+
+        <mat-card-content>
+            <p>
+Some features are under development.
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <div mat-dialog-content class="p-24 pb-0 m-0" fusePerfectScrollbar>
+    <div class="submit-form" >
+        <div *ngIf="!submitted">
+            <div class="form-group" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>ID</mat-label>
+                    <input class="form-control"
+                    id="id"
+                    required
+                    [readonly]="true"
+                    [(ngModel)]="item.id"
+                    name="id" matInput>
+                </mat-form-field>
+            </div>
+            <div class="form-group" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Title</mat-label>
+                    <input type="text"
+                    class="form-control"
+                    id="title"
+                    type="text"
+                    required
+                    [(ngModel)]="item.title"
+                    name="title" matInput>
+                </mat-form-field>
+            </div>
+            <div class="form-group" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Description</mat-label>
+                    <input class="form-control"
+                    id="description"
+                    required
+                    type="text"
+                    [(ngModel)]="item.description"
+                    name="description" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Image Url</mat-label>
+                    <input class="form-control"
+                    id="imageurl"
+                    type="url"
+                    required
+                    [(ngModel)]="item.imageurl"
+                    name="imageurl" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Video Url</mat-label>
+                    <input class="form-control"
+                    id="vidourl"
+                    type="url"
+                    required
+                    [(ngModel)]="item.videourl"
+                    name="videourl" matInput>
+                </mat-form-field>
+            </div>
+
+            <div  class="form-group" fxLayout="row" fxLayoutAlign="start start">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Creation Timestamp</mat-label>
+                    <input class="form-control"
+                    id="timestamp"
+                    type="number"
+                    [(ngModel)]="item.timestamp"
+                    required
+                    [readonly]="true"
+                    name="timestamp" matInput>
+                    </mat-form-field>
+
+                </div>
+<pre style="background: #eeeded;padding: 24px;margin:14px;">
+  "id": {{item.id | json}},
+  "title": {{item.title | json}},
+  "description": {{item.description | json}},
+  "imageUrl": {{item.imageurl | json}},
+  "videoUrl": {{item.videourl | json}},
+  "currenTimestamp": {{item.timestamp}}
+</pre>
+
+
+
+            <button style="width: 100%; margin-top: 24px;"  [disabled]="false" mat-raised-button color="accent" (click)="saveTutorial()" class="btn btn-success">Submit</button>
+
+
+        </div>
+
+        <div *ngIf="submitted">
+          <h4>You submitted successfully!</h4>
+         <a [routerLink]="['/dashboard']" > <button class="btn btn-success" mat-raised-button color="accent" >Add</button> </a>
+        </div>
+      </div>
+
+</div>
+
+
+
+
+</div>

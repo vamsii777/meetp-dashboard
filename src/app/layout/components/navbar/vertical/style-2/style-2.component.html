@@ -1,0 +1,39 @@
+<div *ngIf="auth.user$ | async; then authenticated else guest">
+    <!-- template will replace this div -->
+</div>
+<!-- User logged in -->
+<ng-template #authenticated>
+
+<div  *ngIf="auth.user$ | async as user" class="navbar-header" [ngClass]="fuseConfig.layout.navbar.secondaryBackground">
+
+    <div class="logo">
+        <span class="logo-text">oversee.network</span>
+    </div>
+
+    <button mat-icon-button class="toggle-sidebar-folded"
+            (click)="toggleSidebarFolded()" fxHide.lt-lg>
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-icon-button class="toggle-sidebar-opened"
+            (click)="toggleSidebarOpened()" fxHide.gt-md>
+        <mat-icon>menu</mat-icon>
+    </button>
+
+</div>
+
+
+<div *ngIf="authnav" class="navbar-content" fusePerfectScrollbar [fusePerfectScrollbarOptions]="{suppressScrollX: true}"
+     [ngClass]="fuseConfig.layout.navbar.primaryBackground">
+    <fuse-navigation layout="vertical"></fuse-navigation>
+</div>
+
+</ng-template>
+<!-- User logged in -->
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+
+</ng-template>
+
